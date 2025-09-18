@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My Blog
+{% endblock %}
+{%block css_files%}
+<link rel="stylesheet" href="{% static 'blog/post.css'%}">
+
+<link rel="stylesheet" href="{% static 'blog/index.css'%}">
+{%endblock%}
+
+{% block content %}
+
+<section id="welcome">
+    <header>
+        <img src="{%static 'blog/images/movie.png' %}" alt="Ayush - The Author Of This Blog" />
+        <h2>My Movie Journal</h2>
+    </header>
+    <p>Lights.Camera.Thoughts.</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul>
+        {%for post in posts%}
+      {%include "blog/includes/post.html"%}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>About Movie Journal</h2>
+    <p>
+     Movie Journal-a cinephile’s corner for reviews, reflections, and everything in between.
+    </p>
+    <p>
+    Exploring movies through my eyes. Join me on this cinematic journey
+    </p>
+</section>
+
+{%endblock%}
